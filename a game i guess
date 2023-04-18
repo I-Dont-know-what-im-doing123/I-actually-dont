@@ -1,0 +1,35 @@
+import random
+
+player_health = 100
+enemy_health = 100
+
+print("You are facing Mr. Dog! Prepare for battle.")
+
+while player_health > 0 and enemy_health > 0:
+    print("Your health:", player_health)
+    print("Mr. Dog's health:", enemy_health)
+    print("What do you want to do?")
+    print("1. Attack")
+    print("2. Heal")
+    choice = input("Enter your choice: ")
+    
+    if choice == "1":
+        damage = random.randint(10, 20)
+        enemy_health -= damage
+        print("You attacked Mr. Dog and dealt", damage, "damage!")
+    elif choice == "2":
+        heal = random.randint(10, 15)
+        player_health += heal
+        print("You healed yourself and regained", heal, "health.")
+    else:
+        print("Invalid choice. You lost your turn.")
+    
+    if enemy_health > 0:
+        enemy_damage = random.randint(5, 15)
+        player_health -= enemy_damage
+        print("Mr. Dog attacked you and dealt", enemy_damage, "damage!")
+    
+if player_health > 0:
+    print("Congratulations! You defeated Mr. Dog!")
+else:
+    print("You were defeated by Mr. Dog. Game over.")
